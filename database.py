@@ -85,7 +85,7 @@ def connect_db(db_name):
     #     sys.exit()
 
     # print("Connecting to database...")
-    return sql.connect(host="127.0.0.1", user="root", passwd = "Vj55577022077555.", db=db_name)
+    return sql.connect(host="127.0.0.1", user="root", passwd = "rootpsw", db=db_name)
 
 def model_change_name(list_model):
     """
