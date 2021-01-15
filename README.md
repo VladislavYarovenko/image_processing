@@ -1,13 +1,13 @@
 # DL-Inference
 This project is based on this [paper](https://arxiv.org/pdf/1805.04252.pdf). The original code can be found [here](https://zenodo.org/record/1242583#.WvAmFXUvz80).
 ## Requirements 
-⋅⋅* Python 2 - 3.7
-⋅⋅* Tensorflow 1.3 - 1.15
-⋅⋅* Jupyter Notebook
-⋅⋅* MySQL
-⋅⋅* sklearn, numpy
-⋅⋅* Pyro4
-⋅⋅* MatPlotLib
+* Python 2 - 3.7
+* Tensorflow 1.3 - 1.15
+* Jupyter Notebook
+* MySQL
+* sklearn, numpy
+* Pyro4
+* MatPlotLib
 ## Setup
 Adding image dataset ILSVRC 2012 (50K images) to the project
 
