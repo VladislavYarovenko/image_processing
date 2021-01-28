@@ -98,10 +98,10 @@ class Premodel():
                     row_count = row_count + 1
                     continue
 
-                data.append(row[-7:])
-                first_level.append((row[0],row[1]))
-                second_level.append((row[0],row[2]))
-                third_level.append((row[0],row[3]))
+                data.append(row[4:7])                   # changes what features will be used in the premodel. In this array features start at 4th index, and end at the 10th
+                first_level.append((row[0],row[1]))     # performance of the first level machine
+                second_level.append((row[0],row[2]))    # performance of the second level machine
+                third_level.append((row[0],row[3]))     # performance of the third level machine
                 row_count = row_count + 1
                 if row_count > amount_images:
                     break
