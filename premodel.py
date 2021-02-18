@@ -34,11 +34,11 @@ Percentage_TESTED = 10
 ##DATA_FILE = 'top-1-few-features.csv'
 
 class Premodel():
-    def __init__(self, top_n):
-        if top_n == 'Top-1':
+    def __init__(self, file):
+        if file == 'Student':
             self.DATA_FILE = 'all_new_features_hier_norm_top_1.csv'
-        elif top_n == 'Top-5':
-            self.DATA_FILE = 'all_new_features_hier_norm_top_5.csv'
+        elif file == 'Author':
+            self.DATA_FILE = 'all_new_features_hier_norm.csv'
         else:
             print("String unrecognized, preference set to top-1")
             self.DATA_FILE = 'all_new_features_hier_norm_top_1.csv'
@@ -146,13 +146,6 @@ class Premodel():
         # Prediction
         predicted = log_reg.predict(Y_test)
         predicted = predicted.astype(int)
-        importance = model.coef_
-        # summarize feature importance
-        for i,v in enumerate(importance):
-            print('Feature: %0d, Score: %.5f' % (i,v))
-        # plot feature importance
-        plt.bar([x for x in range(len(importance))], importance)
-        plt.show()
         return predicted
 
     # Decision tree of level 2, 5,8,12 and 16 - TRAINING and PREDICTION
@@ -245,61 +238,61 @@ class Premodel():
         X_val_third_level = [X_test_third_level[i][1] for i in range(0,len(X_test_third_level))]
         Y_val_third_level = [Y_test_third_level[i][1] for i in range(0,len(Y_test_third_level))]
 
-        for i in range(len(X_train_first_level)):
-            for j in range(len(X_train_first_level[i])):
-                X_train_first_level[i][j] = float(X_train_first_level[i][j])
-        for i in range(len(X_val_first_level)):
-            X_val_first_level[i] = int(X_val_first_level[i])
+#         for i in range(len(X_train_first_level)):
+#             for j in range(len(X_train_first_level[i])):
+#                 X_train_first_level[i][j] = float(X_train_first_level[i][j])
+#         for i in range(len(X_val_first_level)):
+#             X_val_first_level[i] = int(X_val_first_level[i])
 
 
-        for i in range(len(X_train_second_level)):
-            for j in range(len(X_train_second_level[i])):
-                X_train_second_level[i][j] = float(X_train_second_level[i][j])
-        for i in range(len(X_val_second_level)):
-            X_val_second_level[i] = int(X_val_second_level[i])
-
-
-
-        for i in range(len(X_train_third_level)):
-            for j in range(len(X_train_third_level[i])):
-                X_train_third_level[i][j] = float(X_train_third_level[i][j])
-        for i in range(len(X_val_third_level)):
-            X_val_third_level[i] = int(X_val_third_level[i])
-
-
-        X_train_first_level = np.array(X_train_first_level)
-        X_train_second_level = np.array(X_train_second_level)
-        X_train_third_level = np.array(X_train_third_level)
-        X_train_first_level = X_train_first_level.astype('float64')
-        X_train_second_level = X_train_second_level.astype('float64')
-        X_train_third_level = X_train_third_level.astype('float64')
-        Y_train = np.array(Y_train)
-
-
-        X_val_first_level = np.array(X_val_first_level)
-        X_val_second_level = np.array(X_val_second_level)
-        X_val_third_level = np.array(X_val_third_level)
-        X_val_first_level = X_val_first_level.astype('int')
-        X_val_second_level = X_val_second_level.astype('int')
-        X_val_third_level = X_val_third_level.astype('int')
+#         for i in range(len(X_train_second_level)):
+#             for j in range(len(X_train_second_level[i])):
+#                 X_train_second_level[i][j] = float(X_train_second_level[i][j])
+#         for i in range(len(X_val_second_level)):
+#             X_val_second_level[i] = int(X_val_second_level[i])
 
 
 
-        #oversample = SMOTE()
-        #X_train_first_level, X_val_first_level = oversample.fit_resample(X_train_first_level, X_val_first_level)
+#         for i in range(len(X_train_third_level)):
+#             for j in range(len(X_train_third_level[i])):
+#                 X_train_third_level[i][j] = float(X_train_third_level[i][j])
+#         for i in range(len(X_val_third_level)):
+#             X_val_third_level[i] = int(X_val_third_level[i])
 
 
-        #undersample = CondensedNearestNeighbour(n_neighbors=1)
-        #undersample = TomekLinks()
-        #undersample = EditedNearestNeighbours(n_neighbors=3)
-        #undersample = OneSidedSelection(n_neighbors=1, n_seeds_S=200)
-        undersample = NearMiss(version=1, n_neighbors=3)
-    # transform the dataset
-        X_train_first_level, X_val_first_level = undersample.fit_resample(X_train_first_level, X_val_first_level)
+#         X_train_first_level = np.array(X_train_first_level)
+#         X_train_second_level = np.array(X_train_second_level)
+#         X_train_third_level = np.array(X_train_third_level)
+#         X_train_first_level = X_train_first_level.astype('float64')
+#         X_train_second_level = X_train_second_level.astype('float64')
+#         X_train_third_level = X_train_third_level.astype('float64')
+#         Y_train = np.array(Y_train)
 
-        X_train_second_level, X_val_second_level = undersample.fit_resample(X_train_second_level, X_val_second_level)
 
-        X_train_third_level, X_val_third_level = undersample.fit_resample(X_train_third_level, X_val_third_level)
+#         X_val_first_level = np.array(X_val_first_level)
+#         X_val_second_level = np.array(X_val_second_level)
+#         X_val_third_level = np.array(X_val_third_level)
+#         X_val_first_level = X_val_first_level.astype('int')
+#         X_val_second_level = X_val_second_level.astype('int')
+#         X_val_third_level = X_val_third_level.astype('int')
+
+
+
+#         #oversample = SMOTE()
+#         #X_train_first_level, X_val_first_level = oversample.fit_resample(X_train_first_level, X_val_first_level)
+
+
+#         #undersample = CondensedNearestNeighbour(n_neighbors=1)
+#         #undersample = TomekLinks()
+#         #undersample = EditedNearestNeighbours(n_neighbors=3)
+#         #undersample = OneSidedSelection(n_neighbors=1, n_seeds_S=200)
+#         undersample = NearMiss(version=1, n_neighbors=3)
+#     # transform the dataset
+#         X_train_first_level, X_val_first_level = undersample.fit_resample(X_train_first_level, X_val_first_level)
+
+#         X_train_second_level, X_val_second_level = undersample.fit_resample(X_train_second_level, X_val_second_level)
+
+#         X_train_third_level, X_val_third_level = undersample.fit_resample(X_train_third_level, X_val_third_level)
 
 
 
