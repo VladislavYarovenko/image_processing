@@ -15,6 +15,8 @@ In the value folder (/images/val), images (/images/val/images/) folder should be
 Inside this folder, images sould be placed in such manner: images/val/images/ILSVRC2012_val_00000001.JPEG.
 Image dataset (ImageNet LSVRC 2012) can be downloaded [here](https://academictorrents.com/details/5d6d0df7ed81efd49ca99ea4737e0ae5e3a5f2e5) (Click "I accept the terms" and download the torrent file).
 
+Also, xml (/images/val/xml/) folder should be created. Inside the folder, the xml files (which contain bounding boxes) should be placed in such manner: images/val/xml/ILSVRC2012_val_00000001.xml. Image dataset (ImageNet LSVRC 2012) can be downloaded here (Click "I accept the terms" and download the torrent file). The xml files can be downloaded [here](https://academictorrents.com/details/dfa9ab2528ce76b907047aa8cf8fc792852facb9) (Click "I accept the terms" and download the torrent file).
+
 Adding checkpoints for the pre-trained DNNs
 
 In the project folder (/), model_data (/model_data/) folder should be created.
