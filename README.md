@@ -1,5 +1,3 @@
-# DL-Inference
-This project is based on this [paper](https://arxiv.org/pdf/1805.04252.pdf) and on this [student's work](https://github.com/Abay-Shaimerdenov/DL-Inference). The original code can be found [here](https://zenodo.org/record/1242583#.WvAmFXUvz80).
 ## Requirements 
 * Python 2 - 3.7
 * Tensorflow 1.3 - 1.15
